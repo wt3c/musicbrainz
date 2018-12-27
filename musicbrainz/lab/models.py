@@ -1336,6 +1336,9 @@ class Instrument(models.Model):
         managed = False
         db_table = 'instrument'
 
+    def __str__(self):
+        return self.name
+
 
 class InstrumentAlias(models.Model):
     instrument = models.IntegerField()
