@@ -124,3 +124,71 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'filters': {
+        # 'special': {
+        #     '()': 'prdcad.logging.SpecialFilter',
+        #     'foo': 'bar',
+        # },
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        },
+
+        'log_file': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs/sql.log'),
+            'maxBytes': 16777216,  # 16megabytes
+            'formatter': 'verbose'
+        },
+        # 'mail_admins': {
+        #     'level': 'ERROR',
+        #     'class': 'django.utils.log.AdminEmailHandler',
+        #     'filters': ['special']
+        # }
+    },
+    'loggers': {
+
+        # 'django': {
+        #     'handlers': ['console'],
+        #     'propagate': True,
+        # },
+        # 'django.request': {
+        #     'handlers': ['console'],
+        #     'level': 'ERROR',
+        #     'propagate': False,
+        # },
+        # 'myproject.custom': {
+        #     'handlers': ['console',],
+        #     'level': 'INFO',
+        #     'filters': ['special']
+        # },
+
+        'django.db.backends': {
+            'level': 'DEBUG',
+            'handlers': ['log_file'],
+        }
+
+    },
+}
+
