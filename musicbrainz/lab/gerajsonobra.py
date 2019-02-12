@@ -1,6 +1,8 @@
 import json
 from requests import get
 from bs4 import BeautifulSoup
+import pandas as pd
+
 
 with open('titulares.json', 'r') as f:
     tits = json.load(f)
@@ -41,8 +43,12 @@ for gid in tits[:10]:
     # (lyricist, composer) ; (writer)
     # for tr in html_soup.find_all(table', class_='tbl'):
 
-    table_work = html_soup.find('table', {'class': 'tbl'})
-    print(table_work)
+
+    data = pd.read_html(html_soup, header=0)
+    print(data[0])
+
+    # table_work = html_soup.find('table', {'class': 'tbl'})
+    # print(table_work)
 
 
     # for wr in tr.find_all('td'):
