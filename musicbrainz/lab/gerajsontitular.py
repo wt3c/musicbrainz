@@ -21,7 +21,8 @@ class UUIDEncoder(json.JSONEncoder):
         return json.JSONEncoder.default(self, obj)
 
 
-artists = Artist.objects.filter(type=1).values('id', 'gid', 'name')[:10]
+# artists = Artist.objects.filter(type=1).values('id', 'gid', 'name')[:10]
+artists = Artist.objects.filter(type=1).values('id', 'gid', 'name')
 tits = []
 
 for i in artists:
