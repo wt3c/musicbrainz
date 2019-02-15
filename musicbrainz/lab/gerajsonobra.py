@@ -11,7 +11,7 @@ with open('titulares.json', 'r') as f:
 
 url = 'https://musicbrainz.org/artist/'
 # url = 'https://musicbrainz.org/artist/42a636a0-dbe4-4d0c-abe2-1590fad9531b/works'
-for gid in tits[:10]:
+for gid in tits:
     link = str(url + gid['gid'] + '/works')
 
     # Pause the loop
