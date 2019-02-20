@@ -4155,7 +4155,8 @@ class Vote(models.Model):
 
 
 class Work(models.Model):
-    id = models.AutoField(db_column='BID', primary_key=True)
+    # id = models.AutoField(db_column='BID', primary_key=True)
+    id = models.AutoField(primary_key=True)
     gid = models.UUIDField()
     name = models.CharField(max_length=200)
     type = models.IntegerField(blank=True, null=True)
