@@ -257,6 +257,9 @@ class Artist(models.Model):
     begin_area = models.IntegerField(blank=True, null=True)
     end_area = models.IntegerField(blank=True, null=True)
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         managed = False
         db_table = 'artist'
@@ -345,25 +348,32 @@ class ArtistAttributeTypeAllowedValue(models.Model):
 
 
 class ArtistCredit(models.Model):
+    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=200)
     artist_count = models.SmallIntegerField()
     ref_count = models.IntegerField(blank=True, null=True)
     created = models.DateTimeField(blank=True, null=True)
+    artists = models.ManyToManyField(Artist, through='ArtistCreditName')
+
+    def __str__(self):
+        return self.name
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'artist_credit'
 
 
 class ArtistCreditName(models.Model):
-    artist_credit = models.IntegerField(primary_key=True)
+    # artist_credit = models.IntegerField(primary_key=True)
+    artist_credit = models.ForeignKey(ArtistCredit, on_delete=models.CASCADE)
     position = models.SmallIntegerField()
-    artist = models.IntegerField()
+    # artist = models.IntegerField()
+    artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
     join_phrase = models.TextField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'artist_credit_name'
         unique_together = (('artist_credit', 'position'),)
 
