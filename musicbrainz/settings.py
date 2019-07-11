@@ -85,8 +85,11 @@ DATABASES = {
         'USER': config('USER_AWS'),
         'PASSWORD': config('PASSWORD_AWS'),
         'HOST': config('HOST_AWS'),
-        'SCHEMA': config('SCHEMA_AWS'),
+        # 'SCHEMA': config('SCHEMA_AWS'),
         'PORT': config('PORT_AWS'),
+        'OPTIONS': {
+            'options': '-c search_path=musicbrainz',  # if using schema
+        }
     },
 }
 
@@ -125,7 +128,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
 
 LOGGING = {
     'version': 1,
@@ -192,4 +194,3 @@ LOGGING = {
 
     },
 }
-

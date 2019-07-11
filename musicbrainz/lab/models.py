@@ -238,6 +238,7 @@ class AreaType(models.Model):
 
 
 class Artist(models.Model):
+    id = models.IntegerField(primary_key=True)
     gid = models.UUIDField()
     name = models.CharField(max_length=200)
     sort_name = models.CharField(max_length=200)
@@ -247,9 +248,13 @@ class Artist(models.Model):
     end_date_year = models.SmallIntegerField(blank=True, null=True)
     end_date_month = models.SmallIntegerField(blank=True, null=True)
     end_date_day = models.SmallIntegerField(blank=True, null=True)
-    type = models.IntegerField(blank=True, null=True)
-    area = models.IntegerField(blank=True, null=True)
-    gender = models.IntegerField(blank=True, null=True)
+    # type = models.IntegerField(blank=True, null=True)
+    type = models.ForeignKey('ArtistType', on_delete=models.CASCADE, )
+    # area = models.IntegerField(blank=True, null=True)
+    # area = models.IntegerField(blank=True, null=True)
+    area = models.ForeignKey('Area', on_delete=models.CASCADE, )
+    # gender = models.IntegerField(blank=True, null=True)
+    gender = models.ForeignKey('Gender', on_delete=models.CASCADE, )
     comment = models.CharField(max_length=255)
     edits_pending = models.IntegerField()
     last_updated = models.DateTimeField(blank=True, null=True)
@@ -261,7 +266,7 @@ class Artist(models.Model):
         return self.name
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'artist'
 
 
@@ -343,7 +348,7 @@ class ArtistAttributeTypeAllowedValue(models.Model):
     gid = models.UUIDField()
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'artist_attribute_type_allowed_value'
 
 
@@ -353,13 +358,13 @@ class ArtistCredit(models.Model):
     artist_count = models.SmallIntegerField()
     ref_count = models.IntegerField(blank=True, null=True)
     created = models.DateTimeField(blank=True, null=True)
-    artists = models.ManyToManyField(Artist, through='ArtistCreditName')
+    artist = models.ManyToManyField(Artist, through='ArtistCreditName')
 
     def __str__(self):
         return self.name
 
     class Meta:
-        managed = True
+        # managed = True
         db_table = 'artist_credit'
 
 
@@ -373,9 +378,9 @@ class ArtistCreditName(models.Model):
     join_phrase = models.TextField()
 
     class Meta:
-        managed = True
+        # managed = True
         db_table = 'artist_credit_name'
-        unique_together = (('artist_credit', 'position'),)
+        unique_together = (('artist_credit', 'position', 'artist'),)
 
 
 class ArtistGidRedirect(models.Model):
@@ -465,7 +470,7 @@ class ArtistType(models.Model):
     gid = models.UUIDField()
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'artist_type'
 
 
@@ -3300,7 +3305,8 @@ class PlaceType(models.Model):
 class Recording(models.Model):
     gid = models.UUIDField()
     name = models.CharField(max_length=200)
-    artist_credit = models.IntegerField()
+    # artist_credit = models.IntegerField()
+    artist_credit = models.ForeignKey(ArtistCredit, on_delete=models.CASCADE, )
     length = models.IntegerField(blank=True, null=True)
     comment = models.CharField(max_length=255)
     edits_pending = models.IntegerField()
@@ -3308,8 +3314,11 @@ class Recording(models.Model):
     video = models.BooleanField()
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'recording'
+
+    def __str__(self):
+        return self.name
 
 
 class RecordingAlias(models.Model):
@@ -4089,22 +4098,28 @@ class TagRelation(models.Model):
 
 
 class Track(models.Model):
-    id = models.AutoField(db_column='BID', primary_key=True)
+    # id = models.AutoField(db_column='BID', primary_key=True)
+    id = models.AutoField(primary_key=True)
     gid = models.UUIDField()
-    recording = models.IntegerField()
+    # recording = models.IntegerField()
+    recording = models.ForeignKey(Recording, on_delete=models.CASCADE)
     medium = models.IntegerField()
     position = models.IntegerField()
     number = models.TextField()
     name = models.CharField(max_length=200)
     artist_credit = models.IntegerField()
+    # artist_credit = models.ForeignKey(Recording, on_delete=models.CASCADE)
     length = models.IntegerField(blank=True, null=True)
     edits_pending = models.IntegerField()
     last_updated = models.DateTimeField(blank=True, null=True)
     is_data_track = models.BooleanField()
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'track'
+
+    def __str__(self):
+        return self.name
 
 
 class TrackGidRedirect(models.Model):
@@ -4166,17 +4181,27 @@ class Vote(models.Model):
 
 class Work(models.Model):
     # id = models.AutoField(db_column='BID', primary_key=True)
-    id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True, unique=True)
     gid = models.UUIDField()
     name = models.CharField(max_length=200)
     type = models.IntegerField(blank=True, null=True)
     comment = models.CharField(max_length=255)
     edits_pending = models.IntegerField()
     last_updated = models.DateTimeField(blank=True, null=True)
+    artists = models.ManyToManyField(Artist, through='ArtistWork', null=True, blank=True)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'work'
+
+    def __str__(self):
+        return self.name
+
+
+class ArtistWork(models.Model):
+    artist = models.ForeignKey(Artist, on_delete=models.CASCADE, blank=True, null=True)
+    work = models.ForeignKey(Work, on_delete=models.CASCADE, blank=True, null=True)
+    category = models.CharField(max_length=50, blank=True, null=True)
 
 
 class WorkAlias(models.Model):
