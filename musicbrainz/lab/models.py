@@ -105,8 +105,11 @@ class Area(models.Model):
     comment = models.CharField(max_length=255)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'area'
+
+    def __str__(self):
+        return self.name
 
 
 class AreaAlias(models.Model):
@@ -249,12 +252,15 @@ class Artist(models.Model):
     end_date_month = models.SmallIntegerField(blank=True, null=True)
     end_date_day = models.SmallIntegerField(blank=True, null=True)
     # type = models.IntegerField(blank=True, null=True)
-    type = models.ForeignKey('ArtistType', to_field='id', db_column='type', on_delete=models.CASCADE, blank=True, null=True)
-    # area = models.IntegerField(blank=True, null=True)
+    type = models.ForeignKey('ArtistType', to_field='id', db_column='type', on_delete=models.CASCADE,
+                             blank=True,
+                             null=True)
     # area = models.IntegerField(blank=True, null=True)
     area = models.ForeignKey('Area', to_field='id', db_column='area', on_delete=models.CASCADE, )
     # gender = models.IntegerField(blank=True, null=True)
-    gender = models.ForeignKey('Gender', to_field='id', db_column='gender', on_delete=models.CASCADE, blank=True, null=True )
+    gender = models.ForeignKey('Gender', to_field='id', db_column='gender', on_delete=models.CASCADE,
+                               blank=True,
+                               null=True)
     comment = models.CharField(max_length=255)
     edits_pending = models.IntegerField()
     last_updated = models.DateTimeField(blank=True, null=True)
@@ -472,6 +478,9 @@ class ArtistType(models.Model):
     class Meta:
         # managed = False
         db_table = 'artist_type'
+
+    def __str__(self):
+        return self.name
 
 
 class AuthGroup(models.Model):
@@ -1334,9 +1343,11 @@ class Gender(models.Model):
     gid = models.UUIDField()
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'gender'
 
+    def __str__(self):
+        return self.name
 
 class Instrument(models.Model):
     gid = models.UUIDField()
@@ -4188,7 +4199,7 @@ class Work(models.Model):
     comment = models.CharField(max_length=255)
     edits_pending = models.IntegerField()
     last_updated = models.DateTimeField(blank=True, null=True)
-    artists = models.ManyToManyField(Artist, through='ArtistWork', null=True, blank=True)
+    artists = models.ManyToManyField(Artist, through='ArtistWork')
 
     class Meta:
         # managed = False
