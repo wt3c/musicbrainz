@@ -249,12 +249,12 @@ class Artist(models.Model):
     end_date_month = models.SmallIntegerField(blank=True, null=True)
     end_date_day = models.SmallIntegerField(blank=True, null=True)
     # type = models.IntegerField(blank=True, null=True)
-    type = models.ForeignKey('ArtistType', on_delete=models.CASCADE, )
+    type = models.ForeignKey('ArtistType', to_field='id', db_column='type', on_delete=models.CASCADE, blank=True, null=True)
     # area = models.IntegerField(blank=True, null=True)
     # area = models.IntegerField(blank=True, null=True)
-    area = models.ForeignKey('Area', on_delete=models.CASCADE, )
+    area = models.ForeignKey('Area', to_field='id', db_column='area', on_delete=models.CASCADE, )
     # gender = models.IntegerField(blank=True, null=True)
-    gender = models.ForeignKey('Gender', on_delete=models.CASCADE, )
+    gender = models.ForeignKey('Gender', to_field='id', db_column='gender', on_delete=models.CASCADE, blank=True, null=True )
     comment = models.CharField(max_length=255)
     edits_pending = models.IntegerField()
     last_updated = models.DateTimeField(blank=True, null=True)
@@ -400,7 +400,7 @@ class ArtistIpi(models.Model):
     created = models.DateTimeField(blank=True, null=True)
 
     class Meta:
-        managed = False
+        # managed = False
         db_table = 'artist_ipi'
         unique_together = (('artist', 'ipi'),)
 
