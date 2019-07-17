@@ -1129,7 +1129,7 @@ class EditorWatchArtist(models.Model):
 class EditorWatchPreferences(models.Model):
     editor = models.IntegerField(primary_key=True)
     notify_via_email = models.BooleanField()
-    notification_timeframe = models.TextField()  # This field type is a guess.
+    notification_timeframe = models.DurationField()
     last_checked = models.DateTimeField()
 
     class Meta:
@@ -2192,3 +2192,2153 @@ class LLabelPlace(models.Model):
     class Meta:
         managed = False
         db_table = 'l_label_place'
+
+
+class LLabelRecording(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_label_recording'
+
+
+class LLabelRelease(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_label_release'
+
+
+class LLabelReleaseGroup(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_label_release_group'
+
+
+class LLabelSeries(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_label_series'
+
+
+class LLabelUrl(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_label_url'
+
+
+class LLabelWork(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_label_work'
+
+
+class LPlacePlace(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_place_place'
+
+
+class LPlaceRecording(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_place_recording'
+
+
+class LPlaceRelease(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_place_release'
+
+
+class LPlaceReleaseGroup(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_place_release_group'
+
+
+class LPlaceSeries(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_place_series'
+
+
+class LPlaceUrl(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_place_url'
+
+
+class LPlaceWork(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_place_work'
+
+
+class LRecordingRecording(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_recording_recording'
+
+
+class LRecordingRelease(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_recording_release'
+
+
+class LRecordingReleaseGroup(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_recording_release_group'
+
+
+class LRecordingSeries(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_recording_series'
+
+
+class LRecordingUrl(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_recording_url'
+
+
+class LRecordingWork(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_recording_work'
+
+
+class LReleaseGroupReleaseGroup(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_release_group_release_group'
+
+
+class LReleaseGroupSeries(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_release_group_series'
+
+
+class LReleaseGroupUrl(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_release_group_url'
+
+
+class LReleaseGroupWork(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_release_group_work'
+
+
+class LReleaseRelease(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_release_release'
+
+
+class LReleaseReleaseGroup(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_release_release_group'
+
+
+class LReleaseSeries(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_release_series'
+
+
+class LReleaseUrl(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_release_url'
+
+
+class LReleaseWork(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_release_work'
+
+
+class LSeriesSeries(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_series_series'
+
+
+class LSeriesUrl(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_series_url'
+
+
+class LSeriesWork(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_series_work'
+
+
+class LUrlUrl(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_url_url'
+
+
+class LUrlWork(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_url_work'
+
+
+class LWorkWork(models.Model):
+    link = models.IntegerField()
+    entity0 = models.IntegerField()
+    entity1 = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    link_order = models.IntegerField()
+    entity0_credit = models.TextField()
+    entity1_credit = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'l_work_work'
+
+
+class Label(models.Model):
+    gid = models.UUIDField()
+    name = models.CharField(max_length=-1)
+    begin_date_year = models.SmallIntegerField(blank=True, null=True)
+    begin_date_month = models.SmallIntegerField(blank=True, null=True)
+    begin_date_day = models.SmallIntegerField(blank=True, null=True)
+    end_date_year = models.SmallIntegerField(blank=True, null=True)
+    end_date_month = models.SmallIntegerField(blank=True, null=True)
+    end_date_day = models.SmallIntegerField(blank=True, null=True)
+    label_code = models.IntegerField(blank=True, null=True)
+    type = models.IntegerField(blank=True, null=True)
+    area = models.IntegerField(blank=True, null=True)
+    comment = models.CharField(max_length=255)
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    ended = models.BooleanField()
+
+    class Meta:
+        managed = False
+        db_table = 'label'
+
+
+class LabelAlias(models.Model):
+    label = models.IntegerField()
+    name = models.CharField(max_length=-1)
+    locale = models.TextField(blank=True, null=True)
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    type = models.IntegerField(blank=True, null=True)
+    sort_name = models.CharField(max_length=-1)
+    begin_date_year = models.SmallIntegerField(blank=True, null=True)
+    begin_date_month = models.SmallIntegerField(blank=True, null=True)
+    begin_date_day = models.SmallIntegerField(blank=True, null=True)
+    end_date_year = models.SmallIntegerField(blank=True, null=True)
+    end_date_month = models.SmallIntegerField(blank=True, null=True)
+    end_date_day = models.SmallIntegerField(blank=True, null=True)
+    primary_for_locale = models.BooleanField()
+    ended = models.BooleanField()
+
+    class Meta:
+        managed = False
+        db_table = 'label_alias'
+
+
+class LabelAliasType(models.Model):
+    name = models.TextField()
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'label_alias_type'
+
+
+class LabelAnnotation(models.Model):
+    label = models.IntegerField(primary_key=True)
+    annotation = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'label_annotation'
+        unique_together = (('label', 'annotation'),)
+
+
+class LabelAttribute(models.Model):
+    label = models.IntegerField()
+    label_attribute_type = models.IntegerField()
+    label_attribute_type_allowed_value = models.IntegerField(blank=True, null=True)
+    label_attribute_text = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'label_attribute'
+
+
+class LabelAttributeType(models.Model):
+    name = models.CharField(max_length=255)
+    comment = models.CharField(max_length=255)
+    free_text = models.BooleanField()
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'label_attribute_type'
+
+
+class LabelAttributeTypeAllowedValue(models.Model):
+    label_attribute_type = models.IntegerField()
+    value = models.TextField(blank=True, null=True)
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'label_attribute_type_allowed_value'
+
+
+class LabelGidRedirect(models.Model):
+    gid = models.UUIDField(primary_key=True)
+    new_id = models.IntegerField()
+    created = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'label_gid_redirect'
+
+
+class LabelIpi(models.Model):
+    label = models.IntegerField(primary_key=True)
+    ipi = models.CharField(max_length=11)
+    edits_pending = models.IntegerField()
+    created = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'label_ipi'
+        unique_together = (('label', 'ipi'),)
+
+
+class LabelIsni(models.Model):
+    label = models.IntegerField(primary_key=True)
+    isni = models.CharField(max_length=16)
+    edits_pending = models.IntegerField()
+    created = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'label_isni'
+        unique_together = (('label', 'isni'),)
+
+
+class LabelMeta(models.Model):
+    id = models.IntegerField(primary_key=True)
+    rating = models.SmallIntegerField(blank=True, null=True)
+    rating_count = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'label_meta'
+
+
+class LabelRatingRaw(models.Model):
+    label = models.IntegerField(primary_key=True)
+    editor = models.IntegerField()
+    rating = models.SmallIntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'label_rating_raw'
+        unique_together = (('label', 'editor'),)
+
+
+class LabelTag(models.Model):
+    label = models.IntegerField(primary_key=True)
+    tag = models.IntegerField()
+    count = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'label_tag'
+        unique_together = (('label', 'tag'),)
+
+
+class LabelTagRaw(models.Model):
+    label = models.IntegerField(primary_key=True)
+    editor = models.IntegerField()
+    tag = models.IntegerField()
+    is_upvote = models.BooleanField()
+
+    class Meta:
+        managed = False
+        db_table = 'label_tag_raw'
+        unique_together = (('label', 'editor', 'tag'),)
+
+
+class LabelType(models.Model):
+    name = models.CharField(max_length=255)
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'label_type'
+
+
+class Language(models.Model):
+    iso_code_2t = models.CharField(max_length=3, blank=True, null=True)
+    iso_code_2b = models.CharField(max_length=3, blank=True, null=True)
+    iso_code_1 = models.CharField(max_length=2, blank=True, null=True)
+    name = models.CharField(max_length=100)
+    frequency = models.IntegerField()
+    iso_code_3 = models.CharField(max_length=3, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'language'
+
+
+class Link(models.Model):
+    link_type = models.IntegerField()
+    begin_date_year = models.SmallIntegerField(blank=True, null=True)
+    begin_date_month = models.SmallIntegerField(blank=True, null=True)
+    begin_date_day = models.SmallIntegerField(blank=True, null=True)
+    end_date_year = models.SmallIntegerField(blank=True, null=True)
+    end_date_month = models.SmallIntegerField(blank=True, null=True)
+    end_date_day = models.SmallIntegerField(blank=True, null=True)
+    attribute_count = models.IntegerField()
+    created = models.DateTimeField(blank=True, null=True)
+    ended = models.BooleanField()
+
+    class Meta:
+        managed = False
+        db_table = 'link'
+
+
+class LinkAttribute(models.Model):
+    link = models.IntegerField(primary_key=True)
+    attribute_type = models.IntegerField()
+    created = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'link_attribute'
+        unique_together = (('link', 'attribute_type'),)
+
+
+class LinkAttributeCredit(models.Model):
+    link = models.IntegerField(primary_key=True)
+    attribute_type = models.IntegerField()
+    credited_as = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'link_attribute_credit'
+        unique_together = (('link', 'attribute_type'),)
+
+
+class LinkAttributeTextValue(models.Model):
+    link = models.IntegerField(primary_key=True)
+    attribute_type = models.IntegerField()
+    text_value = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'link_attribute_text_value'
+        unique_together = (('link', 'attribute_type'),)
+
+
+class LinkAttributeType(models.Model):
+    parent = models.IntegerField(blank=True, null=True)
+    root = models.IntegerField()
+    child_order = models.IntegerField()
+    gid = models.UUIDField()
+    name = models.CharField(max_length=255)
+    description = models.TextField(blank=True, null=True)
+    last_updated = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'link_attribute_type'
+
+
+class LinkCreditableAttributeType(models.Model):
+    attribute_type = models.IntegerField(primary_key=True)
+
+    class Meta:
+        managed = False
+        db_table = 'link_creditable_attribute_type'
+
+
+class LinkTextAttributeType(models.Model):
+    attribute_type = models.IntegerField(primary_key=True)
+
+    class Meta:
+        managed = False
+        db_table = 'link_text_attribute_type'
+
+
+class LinkType(models.Model):
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    gid = models.UUIDField()
+    entity_type0 = models.CharField(max_length=50)
+    entity_type1 = models.CharField(max_length=50)
+    name = models.CharField(max_length=255)
+    description = models.TextField(blank=True, null=True)
+    link_phrase = models.CharField(max_length=255)
+    reverse_link_phrase = models.CharField(max_length=255)
+    long_link_phrase = models.CharField(max_length=255)
+    priority = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    is_deprecated = models.BooleanField()
+    has_dates = models.BooleanField()
+    entity0_cardinality = models.IntegerField()
+    entity1_cardinality = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'link_type'
+
+
+class LinkTypeAttributeType(models.Model):
+    link_type = models.IntegerField(primary_key=True)
+    attribute_type = models.IntegerField()
+    min = models.SmallIntegerField(blank=True, null=True)
+    max = models.SmallIntegerField(blank=True, null=True)
+    last_updated = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'link_type_attribute_type'
+        unique_together = (('link_type', 'attribute_type'),)
+
+
+class Medium(models.Model):
+    release = models.IntegerField()
+    position = models.IntegerField()
+    format = models.IntegerField(blank=True, null=True)
+    name = models.CharField(max_length=-1)
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    track_count = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'medium'
+
+
+class MediumAttribute(models.Model):
+    medium = models.IntegerField()
+    medium_attribute_type = models.IntegerField()
+    medium_attribute_type_allowed_value = models.IntegerField(blank=True, null=True)
+    medium_attribute_text = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'medium_attribute'
+
+
+class MediumAttributeType(models.Model):
+    name = models.CharField(max_length=255)
+    comment = models.CharField(max_length=255)
+    free_text = models.BooleanField()
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'medium_attribute_type'
+
+
+class MediumAttributeTypeAllowedFormat(models.Model):
+    medium_format = models.IntegerField(primary_key=True)
+    medium_attribute_type = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'medium_attribute_type_allowed_format'
+        unique_together = (('medium_format', 'medium_attribute_type'),)
+
+
+class MediumAttributeTypeAllowedValue(models.Model):
+    medium_attribute_type = models.IntegerField()
+    value = models.TextField(blank=True, null=True)
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'medium_attribute_type_allowed_value'
+
+
+class MediumAttributeTypeAllowedValueAllowedFormat(models.Model):
+    medium_format = models.IntegerField(primary_key=True)
+    medium_attribute_type_allowed_value = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'medium_attribute_type_allowed_value_allowed_format'
+        unique_together = (('medium_format', 'medium_attribute_type_allowed_value'),)
+
+
+class MediumCdtoc(models.Model):
+    medium = models.IntegerField()
+    cdtoc = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'medium_cdtoc'
+
+
+class MediumFormat(models.Model):
+    name = models.CharField(max_length=100)
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    year = models.SmallIntegerField(blank=True, null=True)
+    has_discids = models.BooleanField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'medium_format'
+
+
+class MediumIndex(models.Model):
+    medium = models.IntegerField(primary_key=True)
+    toc = models.TextField(blank=True, null=True)  # This field type is a guess.
+
+    class Meta:
+        managed = False
+        db_table = 'medium_index'
+
+
+class OldEditorName(models.Model):
+    name = models.CharField(max_length=64)
+
+    class Meta:
+        managed = False
+        db_table = 'old_editor_name'
+
+
+class OrderableLinkType(models.Model):
+    link_type = models.IntegerField(primary_key=True)
+    direction = models.SmallIntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'orderable_link_type'
+
+
+class Place(models.Model):
+    gid = models.UUIDField()
+    name = models.CharField(max_length=-1)
+    type = models.IntegerField(blank=True, null=True)
+    address = models.CharField(max_length=-1)
+    area = models.IntegerField(blank=True, null=True)
+    coordinates = models.TextField(blank=True, null=True)  # This field type is a guess.
+    comment = models.CharField(max_length=255)
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    begin_date_year = models.SmallIntegerField(blank=True, null=True)
+    begin_date_month = models.SmallIntegerField(blank=True, null=True)
+    begin_date_day = models.SmallIntegerField(blank=True, null=True)
+    end_date_year = models.SmallIntegerField(blank=True, null=True)
+    end_date_month = models.SmallIntegerField(blank=True, null=True)
+    end_date_day = models.SmallIntegerField(blank=True, null=True)
+    ended = models.BooleanField()
+
+    class Meta:
+        managed = False
+        db_table = 'place'
+
+
+class PlaceAlias(models.Model):
+    place = models.IntegerField()
+    name = models.CharField(max_length=-1)
+    locale = models.TextField(blank=True, null=True)
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    type = models.IntegerField(blank=True, null=True)
+    sort_name = models.CharField(max_length=-1)
+    begin_date_year = models.SmallIntegerField(blank=True, null=True)
+    begin_date_month = models.SmallIntegerField(blank=True, null=True)
+    begin_date_day = models.SmallIntegerField(blank=True, null=True)
+    end_date_year = models.SmallIntegerField(blank=True, null=True)
+    end_date_month = models.SmallIntegerField(blank=True, null=True)
+    end_date_day = models.SmallIntegerField(blank=True, null=True)
+    primary_for_locale = models.BooleanField()
+    ended = models.BooleanField()
+
+    class Meta:
+        managed = False
+        db_table = 'place_alias'
+
+
+class PlaceAliasType(models.Model):
+    name = models.TextField()
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'place_alias_type'
+
+
+class PlaceAnnotation(models.Model):
+    place = models.IntegerField(primary_key=True)
+    annotation = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'place_annotation'
+        unique_together = (('place', 'annotation'),)
+
+
+class PlaceAttribute(models.Model):
+    place = models.IntegerField()
+    place_attribute_type = models.IntegerField()
+    place_attribute_type_allowed_value = models.IntegerField(blank=True, null=True)
+    place_attribute_text = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'place_attribute'
+
+
+class PlaceAttributeType(models.Model):
+    name = models.CharField(max_length=255)
+    comment = models.CharField(max_length=255)
+    free_text = models.BooleanField()
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'place_attribute_type'
+
+
+class PlaceAttributeTypeAllowedValue(models.Model):
+    place_attribute_type = models.IntegerField()
+    value = models.TextField(blank=True, null=True)
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'place_attribute_type_allowed_value'
+
+
+class PlaceGidRedirect(models.Model):
+    gid = models.UUIDField(primary_key=True)
+    new_id = models.IntegerField()
+    created = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'place_gid_redirect'
+
+
+class PlaceTag(models.Model):
+    place = models.IntegerField(primary_key=True)
+    tag = models.IntegerField()
+    count = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'place_tag'
+        unique_together = (('place', 'tag'),)
+
+
+class PlaceTagRaw(models.Model):
+    place = models.IntegerField(primary_key=True)
+    editor = models.IntegerField()
+    tag = models.IntegerField()
+    is_upvote = models.BooleanField()
+
+    class Meta:
+        managed = False
+        db_table = 'place_tag_raw'
+        unique_together = (('place', 'editor', 'tag'),)
+
+
+class PlaceType(models.Model):
+    name = models.CharField(max_length=255)
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'place_type'
+
+
+class Recording(models.Model):
+    gid = models.UUIDField()
+    name = models.CharField(max_length=-1)
+    artist_credit = models.ForeignKey(ArtistCredit, models.DO_NOTHING)
+    length = models.IntegerField(blank=True, null=True)
+    comment = models.CharField(max_length=255)
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    video = models.BooleanField()
+
+    class Meta:
+        managed = False
+        db_table = 'recording'
+
+
+class RecordingAlias(models.Model):
+    id = models.AutoField()
+    recording = models.IntegerField()
+    name = models.CharField(max_length=-1)
+    locale = models.TextField(blank=True, null=True)
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    type = models.IntegerField(blank=True, null=True)
+    sort_name = models.CharField(max_length=-1)
+    begin_date_year = models.SmallIntegerField(blank=True, null=True)
+    begin_date_month = models.SmallIntegerField(blank=True, null=True)
+    begin_date_day = models.SmallIntegerField(blank=True, null=True)
+    end_date_year = models.SmallIntegerField(blank=True, null=True)
+    end_date_month = models.SmallIntegerField(blank=True, null=True)
+    end_date_day = models.SmallIntegerField(blank=True, null=True)
+    primary_for_locale = models.BooleanField()
+    ended = models.BooleanField()
+
+    class Meta:
+        managed = False
+        db_table = 'recording_alias'
+
+
+class RecordingAliasType(models.Model):
+    id = models.AutoField()
+    name = models.TextField()
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'recording_alias_type'
+
+
+class RecordingAnnotation(models.Model):
+    recording = models.IntegerField()
+    annotation = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'recording_annotation'
+
+
+class RecordingAttribute(models.Model):
+    id = models.AutoField()
+    recording = models.IntegerField()
+    recording_attribute_type = models.IntegerField()
+    recording_attribute_type_allowed_value = models.IntegerField(blank=True, null=True)
+    recording_attribute_text = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'recording_attribute'
+
+
+class RecordingAttributeType(models.Model):
+    id = models.AutoField()
+    name = models.CharField(max_length=255)
+    comment = models.CharField(max_length=255)
+    free_text = models.BooleanField()
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'recording_attribute_type'
+
+
+class RecordingAttributeTypeAllowedValue(models.Model):
+    id = models.AutoField()
+    recording_attribute_type = models.IntegerField()
+    value = models.TextField(blank=True, null=True)
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'recording_attribute_type_allowed_value'
+
+
+class RecordingGidRedirect(models.Model):
+    gid = models.UUIDField()
+    new_id = models.IntegerField()
+    created = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'recording_gid_redirect'
+
+
+class RecordingMeta(models.Model):
+    id = models.IntegerField()
+    rating = models.SmallIntegerField(blank=True, null=True)
+    rating_count = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'recording_meta'
+
+
+class RecordingRatingRaw(models.Model):
+    recording = models.IntegerField()
+    editor = models.IntegerField()
+    rating = models.SmallIntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'recording_rating_raw'
+
+
+class RecordingTag(models.Model):
+    recording = models.IntegerField()
+    tag = models.IntegerField()
+    count = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'recording_tag'
+
+
+class RecordingTagRaw(models.Model):
+    recording = models.IntegerField()
+    editor = models.IntegerField()
+    tag = models.IntegerField()
+    is_upvote = models.BooleanField()
+
+    class Meta:
+        managed = False
+        db_table = 'recording_tag_raw'
+
+
+class Release(models.Model):
+    id = models.AutoField()
+    gid = models.UUIDField()
+    name = models.CharField(max_length=-1)
+    artist_credit = models.IntegerField()
+    release_group = models.IntegerField()
+    status = models.IntegerField(blank=True, null=True)
+    packaging = models.IntegerField(blank=True, null=True)
+    language = models.IntegerField(blank=True, null=True)
+    script = models.IntegerField(blank=True, null=True)
+    barcode = models.CharField(max_length=255, blank=True, null=True)
+    comment = models.CharField(max_length=255)
+    edits_pending = models.IntegerField()
+    quality = models.SmallIntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'release'
+
+
+class ReleaseAlias(models.Model):
+    id = models.AutoField()
+    release = models.IntegerField()
+    name = models.CharField(max_length=-1)
+    locale = models.TextField(blank=True, null=True)
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    type = models.IntegerField(blank=True, null=True)
+    sort_name = models.CharField(max_length=-1)
+    begin_date_year = models.SmallIntegerField(blank=True, null=True)
+    begin_date_month = models.SmallIntegerField(blank=True, null=True)
+    begin_date_day = models.SmallIntegerField(blank=True, null=True)
+    end_date_year = models.SmallIntegerField(blank=True, null=True)
+    end_date_month = models.SmallIntegerField(blank=True, null=True)
+    end_date_day = models.SmallIntegerField(blank=True, null=True)
+    primary_for_locale = models.BooleanField()
+    ended = models.BooleanField()
+
+    class Meta:
+        managed = False
+        db_table = 'release_alias'
+
+
+class ReleaseAliasType(models.Model):
+    id = models.AutoField()
+    name = models.TextField()
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'release_alias_type'
+
+
+class ReleaseAnnotation(models.Model):
+    release = models.IntegerField()
+    annotation = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'release_annotation'
+
+
+class ReleaseAttribute(models.Model):
+    id = models.AutoField()
+    release = models.IntegerField()
+    release_attribute_type = models.IntegerField()
+    release_attribute_type_allowed_value = models.IntegerField(blank=True, null=True)
+    release_attribute_text = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'release_attribute'
+
+
+class ReleaseAttributeType(models.Model):
+    id = models.AutoField()
+    name = models.CharField(max_length=255)
+    comment = models.CharField(max_length=255)
+    free_text = models.BooleanField()
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'release_attribute_type'
+
+
+class ReleaseAttributeTypeAllowedValue(models.Model):
+    id = models.AutoField()
+    release_attribute_type = models.IntegerField()
+    value = models.TextField(blank=True, null=True)
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'release_attribute_type_allowed_value'
+
+
+class ReleaseCountry(models.Model):
+    release = models.IntegerField()
+    country = models.IntegerField()
+    date_year = models.SmallIntegerField(blank=True, null=True)
+    date_month = models.SmallIntegerField(blank=True, null=True)
+    date_day = models.SmallIntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'release_country'
+
+
+class ReleaseCoverart(models.Model):
+    id = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    cover_art_url = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'release_coverart'
+
+
+class ReleaseGidRedirect(models.Model):
+    gid = models.UUIDField()
+    new_id = models.IntegerField()
+    created = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'release_gid_redirect'
+
+
+class ReleaseGroup(models.Model):
+    id = models.AutoField()
+    gid = models.UUIDField()
+    name = models.CharField(max_length=-1)
+    artist_credit = models.IntegerField()
+    type = models.IntegerField(blank=True, null=True)
+    comment = models.CharField(max_length=255)
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'release_group'
+
+
+class ReleaseGroupAlias(models.Model):
+    id = models.AutoField()
+    release_group = models.IntegerField()
+    name = models.CharField(max_length=-1)
+    locale = models.TextField(blank=True, null=True)
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    type = models.IntegerField(blank=True, null=True)
+    sort_name = models.CharField(max_length=-1)
+    begin_date_year = models.SmallIntegerField(blank=True, null=True)
+    begin_date_month = models.SmallIntegerField(blank=True, null=True)
+    begin_date_day = models.SmallIntegerField(blank=True, null=True)
+    end_date_year = models.SmallIntegerField(blank=True, null=True)
+    end_date_month = models.SmallIntegerField(blank=True, null=True)
+    end_date_day = models.SmallIntegerField(blank=True, null=True)
+    primary_for_locale = models.BooleanField()
+    ended = models.BooleanField()
+
+    class Meta:
+        managed = False
+        db_table = 'release_group_alias'
+
+
+class ReleaseGroupAliasType(models.Model):
+    id = models.AutoField()
+    name = models.TextField()
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'release_group_alias_type'
+
+
+class ReleaseGroupAnnotation(models.Model):
+    release_group = models.IntegerField()
+    annotation = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'release_group_annotation'
+
+
+class ReleaseGroupAttribute(models.Model):
+    id = models.AutoField()
+    release_group = models.IntegerField()
+    release_group_attribute_type = models.IntegerField()
+    release_group_attribute_type_allowed_value = models.IntegerField(blank=True, null=True)
+    release_group_attribute_text = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'release_group_attribute'
+
+
+class ReleaseGroupAttributeType(models.Model):
+    id = models.AutoField()
+    name = models.CharField(max_length=255)
+    comment = models.CharField(max_length=255)
+    free_text = models.BooleanField()
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'release_group_attribute_type'
+
+
+class ReleaseGroupAttributeTypeAllowedValue(models.Model):
+    id = models.AutoField()
+    release_group_attribute_type = models.IntegerField()
+    value = models.TextField(blank=True, null=True)
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'release_group_attribute_type_allowed_value'
+
+
+class ReleaseGroupGidRedirect(models.Model):
+    gid = models.UUIDField()
+    new_id = models.IntegerField()
+    created = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'release_group_gid_redirect'
+
+
+class ReleaseGroupMeta(models.Model):
+    id = models.IntegerField()
+    release_count = models.IntegerField()
+    first_release_date_year = models.SmallIntegerField(blank=True, null=True)
+    first_release_date_month = models.SmallIntegerField(blank=True, null=True)
+    first_release_date_day = models.SmallIntegerField(blank=True, null=True)
+    rating = models.SmallIntegerField(blank=True, null=True)
+    rating_count = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'release_group_meta'
+
+
+class ReleaseGroupPrimaryType(models.Model):
+    id = models.AutoField()
+    name = models.CharField(max_length=255)
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'release_group_primary_type'
+
+
+class ReleaseGroupRatingRaw(models.Model):
+    release_group = models.IntegerField()
+    editor = models.IntegerField()
+    rating = models.SmallIntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'release_group_rating_raw'
+
+
+class ReleaseGroupSecondaryType(models.Model):
+    id = models.AutoField()
+    name = models.TextField()
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'release_group_secondary_type'
+
+
+class ReleaseGroupSecondaryTypeJoin(models.Model):
+    release_group = models.IntegerField()
+    secondary_type = models.IntegerField()
+    created = models.DateTimeField()
+
+    class Meta:
+        managed = False
+        db_table = 'release_group_secondary_type_join'
+
+
+class ReleaseGroupTag(models.Model):
+    release_group = models.IntegerField()
+    tag = models.IntegerField()
+    count = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'release_group_tag'
+
+
+class ReleaseGroupTagRaw(models.Model):
+    release_group = models.IntegerField()
+    editor = models.IntegerField()
+    tag = models.IntegerField()
+    is_upvote = models.BooleanField()
+
+    class Meta:
+        managed = False
+        db_table = 'release_group_tag_raw'
+
+
+class ReleaseLabel(models.Model):
+    id = models.AutoField()
+    release = models.IntegerField()
+    label = models.IntegerField(blank=True, null=True)
+    catalog_number = models.CharField(max_length=255, blank=True, null=True)
+    last_updated = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'release_label'
+
+
+class ReleaseMeta(models.Model):
+    id = models.IntegerField()
+    date_added = models.DateTimeField(blank=True, null=True)
+    info_url = models.CharField(max_length=255, blank=True, null=True)
+    amazon_asin = models.CharField(max_length=10, blank=True, null=True)
+    amazon_store = models.CharField(max_length=20, blank=True, null=True)
+    cover_art_presence = models.TextField()  # This field type is a guess.
+
+    class Meta:
+        managed = False
+        db_table = 'release_meta'
+
+
+class ReleasePackaging(models.Model):
+    id = models.AutoField()
+    name = models.CharField(max_length=255)
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'release_packaging'
+
+
+class ReleaseRaw(models.Model):
+    id = models.AutoField()
+    title = models.CharField(max_length=255)
+    artist = models.CharField(max_length=255, blank=True, null=True)
+    added = models.DateTimeField(blank=True, null=True)
+    last_modified = models.DateTimeField(blank=True, null=True)
+    lookup_count = models.IntegerField(blank=True, null=True)
+    modify_count = models.IntegerField(blank=True, null=True)
+    source = models.IntegerField(blank=True, null=True)
+    barcode = models.CharField(max_length=255, blank=True, null=True)
+    comment = models.CharField(max_length=255)
+
+    class Meta:
+        managed = False
+        db_table = 'release_raw'
+
+
+class ReleaseStatus(models.Model):
+    id = models.AutoField()
+    name = models.CharField(max_length=255)
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'release_status'
+
+
+class ReleaseTag(models.Model):
+    release = models.IntegerField()
+    tag = models.IntegerField()
+    count = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'release_tag'
+
+
+class ReleaseTagRaw(models.Model):
+    release = models.IntegerField()
+    editor = models.IntegerField()
+    tag = models.IntegerField()
+    is_upvote = models.BooleanField()
+
+    class Meta:
+        managed = False
+        db_table = 'release_tag_raw'
+
+
+class ReleaseUnknownCountry(models.Model):
+    release = models.IntegerField()
+    date_year = models.SmallIntegerField(blank=True, null=True)
+    date_month = models.SmallIntegerField(blank=True, null=True)
+    date_day = models.SmallIntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'release_unknown_country'
+
+
+class ReplicationControl(models.Model):
+    id = models.AutoField()
+    current_schema_sequence = models.IntegerField()
+    current_replication_sequence = models.IntegerField(blank=True, null=True)
+    last_replication_date = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'replication_control'
+
+
+class Script(models.Model):
+    id = models.AutoField()
+    iso_code = models.CharField(max_length=4)
+    iso_number = models.CharField(max_length=3)
+    name = models.CharField(max_length=100)
+    frequency = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'script'
+
+
+class Series(models.Model):
+    id = models.AutoField()
+    gid = models.UUIDField()
+    name = models.CharField(max_length=-1)
+    comment = models.CharField(max_length=255)
+    type = models.IntegerField()
+    ordering_attribute = models.IntegerField()
+    ordering_type = models.IntegerField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'series'
+
+
+class SeriesAlias(models.Model):
+    id = models.AutoField()
+    series = models.IntegerField()
+    name = models.CharField(max_length=-1)
+    locale = models.TextField(blank=True, null=True)
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    type = models.IntegerField(blank=True, null=True)
+    sort_name = models.CharField(max_length=-1)
+    begin_date_year = models.SmallIntegerField(blank=True, null=True)
+    begin_date_month = models.SmallIntegerField(blank=True, null=True)
+    begin_date_day = models.SmallIntegerField(blank=True, null=True)
+    end_date_year = models.SmallIntegerField(blank=True, null=True)
+    end_date_month = models.SmallIntegerField(blank=True, null=True)
+    end_date_day = models.SmallIntegerField(blank=True, null=True)
+    primary_for_locale = models.BooleanField()
+    ended = models.BooleanField()
+
+    class Meta:
+        managed = False
+        db_table = 'series_alias'
+
+
+class SeriesAliasType(models.Model):
+    id = models.AutoField()
+    name = models.TextField()
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'series_alias_type'
+
+
+class SeriesAnnotation(models.Model):
+    series = models.IntegerField()
+    annotation = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'series_annotation'
+
+
+class SeriesAttribute(models.Model):
+    id = models.AutoField()
+    series = models.IntegerField()
+    series_attribute_type = models.IntegerField()
+    series_attribute_type_allowed_value = models.IntegerField(blank=True, null=True)
+    series_attribute_text = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'series_attribute'
+
+
+class SeriesAttributeType(models.Model):
+    id = models.AutoField()
+    name = models.CharField(max_length=255)
+    comment = models.CharField(max_length=255)
+    free_text = models.BooleanField()
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'series_attribute_type'
+
+
+class SeriesAttributeTypeAllowedValue(models.Model):
+    id = models.AutoField()
+    series_attribute_type = models.IntegerField()
+    value = models.TextField(blank=True, null=True)
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'series_attribute_type_allowed_value'
+
+
+class SeriesGidRedirect(models.Model):
+    gid = models.UUIDField()
+    new_id = models.IntegerField()
+    created = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'series_gid_redirect'
+
+
+class SeriesOrderingType(models.Model):
+    id = models.AutoField()
+    name = models.CharField(max_length=255)
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'series_ordering_type'
+
+
+class SeriesTag(models.Model):
+    series = models.IntegerField()
+    tag = models.IntegerField()
+    count = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'series_tag'
+
+
+class SeriesTagRaw(models.Model):
+    series = models.IntegerField()
+    editor = models.IntegerField()
+    tag = models.IntegerField()
+    is_upvote = models.BooleanField()
+
+    class Meta:
+        managed = False
+        db_table = 'series_tag_raw'
+
+
+class SeriesType(models.Model):
+    id = models.AutoField()
+    name = models.CharField(max_length=255)
+    entity_type = models.CharField(max_length=50)
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'series_type'
+
+
+class Tag(models.Model):
+    id = models.AutoField()
+    name = models.CharField(max_length=255)
+    ref_count = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'tag'
+
+
+class TagRelation(models.Model):
+    tag1 = models.IntegerField()
+    tag2 = models.IntegerField()
+    weight = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'tag_relation'
+
+
+class Track(models.Model):
+    id = models.AutoField()
+    gid = models.UUIDField()
+    recording = models.ForeignKey(Recording, models.DO_NOTHING)
+    medium = models.IntegerField()
+    position = models.IntegerField()
+    number = models.TextField()
+    name = models.CharField(max_length=-1)
+    artist_credit = models.IntegerField()
+    length = models.IntegerField(blank=True, null=True)
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    is_data_track = models.BooleanField()
+
+    class Meta:
+        managed = False
+        db_table = 'track'
+
+
+class TrackGidRedirect(models.Model):
+    gid = models.UUIDField()
+    new_id = models.IntegerField()
+    created = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'track_gid_redirect'
+
+
+class TrackRaw(models.Model):
+    id = models.AutoField()
+    release = models.IntegerField()
+    title = models.CharField(max_length=255)
+    artist = models.CharField(max_length=255, blank=True, null=True)
+    sequence = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'track_raw'
+
+
+class Url(models.Model):
+    id = models.AutoField()
+    gid = models.UUIDField()
+    url = models.TextField()
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'url'
+
+
+class UrlGidRedirect(models.Model):
+    gid = models.UUIDField()
+    new_id = models.IntegerField()
+    created = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'url_gid_redirect'
+
+
+class Vote(models.Model):
+    id = models.AutoField()
+    editor = models.IntegerField()
+    edit = models.IntegerField()
+    vote = models.SmallIntegerField()
+    vote_time = models.DateTimeField(blank=True, null=True)
+    superseded = models.BooleanField()
+
+    class Meta:
+        managed = False
+        db_table = 'vote'
+
+
+class Work(models.Model):
+    gid = models.UUIDField()
+    name = models.CharField(max_length=-1)
+    type = models.IntegerField(blank=True, null=True)
+    comment = models.CharField(max_length=255)
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'work'
+
+
+class WorkAlias(models.Model):
+    id = models.AutoField()
+    work = models.IntegerField()
+    name = models.CharField(max_length=-1)
+    locale = models.TextField(blank=True, null=True)
+    edits_pending = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+    type = models.IntegerField(blank=True, null=True)
+    sort_name = models.CharField(max_length=-1)
+    begin_date_year = models.SmallIntegerField(blank=True, null=True)
+    begin_date_month = models.SmallIntegerField(blank=True, null=True)
+    begin_date_day = models.SmallIntegerField(blank=True, null=True)
+    end_date_year = models.SmallIntegerField(blank=True, null=True)
+    end_date_month = models.SmallIntegerField(blank=True, null=True)
+    end_date_day = models.SmallIntegerField(blank=True, null=True)
+    primary_for_locale = models.BooleanField()
+    ended = models.BooleanField()
+
+    class Meta:
+        managed = False
+        db_table = 'work_alias'
+
+
+class WorkAliasType(models.Model):
+    id = models.AutoField()
+    name = models.TextField()
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'work_alias_type'
+
+
+class WorkAnnotation(models.Model):
+    work = models.IntegerField()
+    annotation = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'work_annotation'
+
+
+class WorkAttribute(models.Model):
+    id = models.AutoField()
+    work = models.IntegerField()
+    work_attribute_type = models.IntegerField()
+    work_attribute_type_allowed_value = models.IntegerField(blank=True, null=True)
+    work_attribute_text = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'work_attribute'
+
+
+class WorkAttributeType(models.Model):
+    id = models.AutoField()
+    name = models.CharField(max_length=255)
+    comment = models.CharField(max_length=255)
+    free_text = models.BooleanField()
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'work_attribute_type'
+
+
+class WorkAttributeTypeAllowedValue(models.Model):
+    id = models.AutoField()
+    work_attribute_type = models.IntegerField()
+    value = models.TextField(blank=True, null=True)
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'work_attribute_type_allowed_value'
+
+
+class WorkGidRedirect(models.Model):
+    gid = models.UUIDField()
+    new_id = models.IntegerField()
+    created = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'work_gid_redirect'
+
+
+class WorkLanguage(models.Model):
+    work = models.IntegerField()
+    language = models.IntegerField()
+    edits_pending = models.IntegerField()
+    created = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'work_language'
+
+
+class WorkMeta(models.Model):
+    id = models.IntegerField()
+    rating = models.SmallIntegerField(blank=True, null=True)
+    rating_count = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'work_meta'
+
+
+class WorkRatingRaw(models.Model):
+    work = models.IntegerField()
+    editor = models.IntegerField()
+    rating = models.SmallIntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'work_rating_raw'
+
+
+class WorkTag(models.Model):
+    work = models.IntegerField()
+    tag = models.IntegerField()
+    count = models.IntegerField()
+    last_updated = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'work_tag'
+
+
+class WorkTagRaw(models.Model):
+    work = models.IntegerField()
+    editor = models.IntegerField()
+    tag = models.IntegerField()
+    is_upvote = models.BooleanField()
+
+    class Meta:
+        managed = False
+        db_table = 'work_tag_raw'
+
+
+class WorkType(models.Model):
+    id = models.AutoField()
+    name = models.CharField(max_length=255)
+    parent = models.IntegerField(blank=True, null=True)
+    child_order = models.IntegerField()
+    description = models.TextField(blank=True, null=True)
+    gid = models.UUIDField()
+
+    class Meta:
+        managed = False
+        db_table = 'work_type'

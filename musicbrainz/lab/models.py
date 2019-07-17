@@ -4199,7 +4199,7 @@ class Work(models.Model):
     comment = models.CharField(max_length=255)
     edits_pending = models.IntegerField()
     last_updated = models.DateTimeField(blank=True, null=True)
-    artists = models.ManyToManyField(Artist, through='ArtistWork')
+    artist = models.ManyToManyField(Artist, through='ArtistWork')
 
     class Meta:
         # managed = False
