@@ -4199,7 +4199,7 @@ class Work(models.Model):
     comment = models.CharField(max_length=255)
     edits_pending = models.IntegerField()
     last_updated = models.DateTimeField(blank=True, null=True)
-    artist = models.ManyToManyField(Artist, through='ArtistWork')
+    artists = models.ManyToManyField(Artist, through='ArtistWork')
 
     class Meta:
         # managed = False
@@ -4210,9 +4210,13 @@ class Work(models.Model):
 
 
 class ArtistWork(models.Model):
+    # id = models.IntegerField(primary_key=True)
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE, blank=True, null=True)
     work = models.ForeignKey(Work, on_delete=models.CASCADE, blank=True, null=True)
     category = models.CharField(max_length=50, blank=True, null=True)
+
+    class Meta:
+        db_table = 'artistwork'
 
 
 class WorkAlias(models.Model):

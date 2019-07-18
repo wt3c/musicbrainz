@@ -31,7 +31,7 @@ try:
 
             art = Artist.objects.get(gid=titular['artist']['id'])
             print(art)
-            work.artist.add(art)
+            work.artists.add(art)
 
 
 except Work.DoesNotExist:
