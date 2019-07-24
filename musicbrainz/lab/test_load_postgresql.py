@@ -104,6 +104,8 @@ def profile(fn):
 
 
 beers = list(iter_beers_from_api()) * 100
+
+
 # len(beers)
 
 # @profile
@@ -264,16 +266,118 @@ def insert_execute_batch_iterator(
                 %(volume)s
             );
         """, iter_beers, page_size=page_size)
-#
-#
-# # In[48]:
-#
-#
+
+
+import io
+from typing import Iterator, Optional
+
+
+def clean_csv_value(value: Optional[Any]) -> str:
+    if value is None:
+        return r'\N'
+    return str(value).replace('\n', '\\n')
+
+
+@profile
+def copy_stringio(connection, beers: Iterator[Dict[str, Any]]) -> None:
+    with connection.cursor() as cursor:
+        create_staging_table(cursor)
+        csv_file_like_object = io.StringIO()
+        for beer in beers:
+            csv_file_like_object.write('|'.join(map(clean_csv_value, (
+                beer['id'],
+                beer['name'],
+                beer['tagline'],
+                parse_first_brewed(beer['first_brewed']),
+                beer['description'],
+                beer['image_url'],
+                beer['abv'],
+                beer['ibu'],
+                beer['target_fg'],
+                beer['target_og'],
+                beer['ebc'],
+                beer['srm'],
+                beer['ph'],
+                beer['attenuation_level'],
+                beer['contributed_by'],
+                beer['brewers_tips'],
+                beer['volume']['value'],
+            ))) + '\n')
+        csv_file_like_object.seek(0)
+        cursor.copy_from(csv_file_like_object, 'staging_beers', sep='|')
+
+
 # conn = connect()
-#
 # insert_execute_batch_iterator(conn, iter(beers), page_size=1000)
+from typing import Iterator, Optional
+import io
+
+
+class StringIteratorIO(io.TextIOBase):
+    def __init__(self, iter: Iterator[str]):
+        self._iter = iter
+        self._buff = ''
+
+    def readable(self) -> bool:
+        return True
+
+    def _read1(self, n: Optional[int] = None) -> str:
+        while not self._buff:
+            try:
+                self._buff = next(self._iter)
+            except StopIteration:
+                break
+        ret = self._buff[:n]
+        self._buff = self._buff[len(ret):]
+        return ret
+
+    def read(self, n: Optional[int] = None) -> str:
+        line = []
+        if n is None or n < 0:
+            while True:
+                m = self._read1()
+                if not m:
+                    break
+                line.append(m)
+        else:
+            while n > 0:
+                m = self._read1(n)
+                if not m:
+                    break
+                n -= len(m)
+                line.append(m)
+        return ''.join(line)
+
+
+@profile
+def copy_string_iterator(connection, beers: Iterator[Dict[str, Any]]) -> None:
+    with connection.cursor() as cursor:
+        create_staging_table(cursor)
+        beers_string_iterator = StringIteratorIO((
+            '|'.join(map(clean_csv_value, (
+                beer['id'],
+                beer['name'],
+                beer['tagline'],
+                parse_first_brewed(beer['first_brewed']).isoformat(),
+                beer['description'],
+                beer['image_url'],
+                beer['abv'],
+                beer['ibu'],
+                beer['target_fg'],
+                beer['target_og'],
+                beer['ebc'],
+                beer['srm'],
+                beer['ph'],
+                beer['attenuation_level'],
+                beer['brewers_tips'],
+                beer['contributed_by'],
+                beer['volume']['value'],
+            ))) + '\n'
+            for beer in beers
+        ))
+        cursor.copy_from(beers_string_iterator, 'beers', sep='|')
 
 
 if __name__ == '__main__':
     conn = connect()
-    insert_execute_batch_iterator(conn, iter(beers), page_size=1000)
+    insert_execute_batch_iterator(conn, beers, page_size=1000)

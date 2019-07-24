@@ -36,3 +36,8 @@ try:
 
 except Work.DoesNotExist:
     print('*' * 50)
+
+# INSERT INTO artistwork("artist_id", "work_id", "category")
+# VALUES(237516, 12432897, NULL)
+# RETURNING
+# artistwork.id;
