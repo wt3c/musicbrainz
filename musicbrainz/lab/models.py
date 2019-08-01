@@ -252,7 +252,7 @@ class Artist(models.Model):
     end_date_month = models.SmallIntegerField(blank=True, null=True)
     end_date_day = models.SmallIntegerField(blank=True, null=True)
     # type = models.IntegerField(blank=True, null=True)
-    type = models.ForeignKey('ArtistType', to_field='id', db_column='type', on_delete=models.CASCADE,
+    type2 = models.ForeignKey('ArtistType', to_field='id', db_column='type', on_delete=models.CASCADE,
                              blank=True,
                              null=True)
     # area = models.IntegerField(blank=True, null=True)
